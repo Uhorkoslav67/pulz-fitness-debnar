@@ -1,13 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Raleway:wght@400;600;700&display=swap');
 
-/* 1. Farby a základné pravidlá – platia najprv pre mobil. */
 :root {
-    --noc: hsl(230, 35%, 9%);
-    --karta: hsl(230, 30%, 15%);
-    --limetka: oklch(88% 0.2 125);
-    --ruzova: oklch(65% 0.24 10);
-    --tlmeny: hsla(0, 0%, 100%, 0.65);
-    --biela: hsl(0, 0%, 100%);
+    --pozadie: #f4efe6;
+    --panel: #e5dfd1;
+    --text: #293a34;
+    --tlmeny: #68736c;
+    --akcent: #b94d32;
+    --zelena: #29473f;
 }
 
 * {
@@ -15,28 +14,28 @@
 }
 
 body {
-    margin: 0;
-    background-color: var(--noc);
-    color: var(--biela);
-    font-family: "Barlow", sans-serif;
+    background-color: var(--pozadie);
+    color: var(--text);
+    font-family: "Raleway", sans-serif;
     font-size: 1.125rem;
     line-height: 1.6;
 }
 
 h1, h2, h3 {
     margin: 0;
-    font-family: "Bebas Neue", sans-serif;
-    font-weight: 400;
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
     line-height: 1.1;
 }
 
 h2 {
-    margin-bottom: 1.75rem;
-    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    font-size: clamp(2.625rem, 7vw, 3.75rem);
+    font-weight: 700;
 }
 
 h3 {
-    font-size: clamp(1.75rem, 2.5vw, 2.25rem);
+    font-size: 1.875rem;
 }
 
 a {
@@ -44,34 +43,33 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: var(--akcent);
+}
+
 a:focus-visible {
-    outline: 0.125rem solid var(--ruzova);
+    outline: 0.125rem solid var(--akcent);
     outline-offset: 0.25rem;
 }
 
-/* 2. Hlavička a navigácia – Flexbox zoraďuje odkazy. */
 .hlavicka {
-    padding: 1.75rem 5%;
-    background-color: var(--karta);
+    padding: 1rem 5%;
+    background-color: var(--panel);
 }
 
 .hlavicka__logo {
     display: inline-block;
-    color: var(--limetka);
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 3rem;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 2.75rem;
+    font-weight: 600;
     line-height: 1;
-}
-
-.hlavicka__logo:hover {
-    color: var(--ruzova);
 }
 
 .hlavicka__podnadpis {
     display: block;
     margin-top: 0.25rem;
     color: var(--tlmeny);
-    font-family: "Barlow", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 0.2rem;
@@ -80,92 +78,91 @@ a:focus-visible {
 .navigacia__zoznam {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem 1.5rem;
-    margin: 1.75rem 0 0;
+    gap: 0.75rem 1.25rem;
+    margin: 1rem 0 0;
     padding: 0;
     list-style: none;
 }
 
 .navigacia__odkaz {
-    display: inline-block;
-    padding: 0.25rem 0;
-    font-size: 1rem;
-    letter-spacing: 0.08rem;
+    letter-spacing: 0.1rem;
     text-transform: uppercase;
 }
 
-.navigacia__odkaz:hover {
-    color: var(--limetka);
+.navigacia__odkaz:hover, .pata__odkaz:hover {
     text-decoration: underline;
 }
 
-/* 3. Úvod a odkaz upravený ako tlačidlo. */
 .uvod, .treningy, .clenstvo, .pata {
     padding: 3rem 5%;
 }
 
+.uvod {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
 .uvod__otvorene {
     margin: 0 0 1.5rem;
-    color: var(--tlmeny);
-    font-size: 0.875rem;
-    letter-spacing: 0.15rem;
+    letter-spacing: 0.2rem;
     text-transform: uppercase;
 }
 
 .uvod__nadpis {
-    color: var(--limetka);
-    font-size: clamp(3.5rem, 8vw, 7.5rem);
+    color: var(--akcent);
+    font-size: clamp(3rem, 13vw, 7.5rem);
+    font-weight: 700;
+    line-height: 1;
 }
 
 .uvod__text {
-    max-width: 32rem;
-    margin: 1rem 0 1.75rem;
+    max-width: 30rem;
+    margin: 1rem 0;
     color: var(--tlmeny);
 }
 
 .tlacidlo {
     display: inline-block;
     padding: 1rem 2rem;
-    background-color: var(--limetka);
-    color: var(--noc);
+    background-color: var(--akcent);
+    color: var(--pozadie);
     font-weight: 700;
     text-transform: uppercase;
 }
 
 .tlacidlo:hover {
-    background-color: var(--ruzova);
+    background-color: var(--zelena);
+    color: var(--pozadie);
 }
 
-/* 4. Tréningy – Grid tvorí skutočnú mriežku kariet. */
 .treningy {
-    background-color: var(--karta);
+    background-color: var(--panel);
 }
 
 .treningy__zoznam {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.75rem;
+    gap: 1.5rem;
 }
 
 .trening {
     min-width: 0;
     padding-left: 1.25rem;
-    border-left: 0.2rem solid var(--ruzova);
+    border-left: 0.2rem solid var(--akcent);
 }
 
 .trening__ikona {
     display: block;
     width: 3rem;
     height: 3rem;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 .trening__text {
-    margin: 0.75rem 0 0;
+    margin: 0.5rem 0 1rem;
     color: var(--tlmeny);
 }
 
-/* 5. Členstvá – Flexbox mení smer zvisle / vodorovne. */
 .clenstvo__zoznam {
     display: flex;
     flex-direction: column;
@@ -175,21 +172,22 @@ a:focus-visible {
 .balik {
     flex: 1;
     min-width: 0;
-    padding: 2rem 1.25rem;
+    padding: 2rem 1.5rem 3rem;
     border: 0.125rem solid var(--tlmeny);
     text-align: center;
 }
 
 .balik--vyrazny {
-    border-color: var(--ruzova);
-    background-color: var(--karta);
+    border-color: var(--akcent);
+    background-color: var(--panel);
 }
 
 .balik__cena {
-    margin: 1.25rem 0 0.5rem;
-    color: var(--limetka);
-    font-family: "Bebas Neue", sans-serif;
-    font-size: 3.5rem;
+    margin: 1.75rem 0 0.5rem;
+    color: var(--akcent);
+    font-family: "Cormorant Garamond", serif;
+    font-size: 4rem;
+    font-weight: 600;
     line-height: 1.1;
 }
 
@@ -197,19 +195,19 @@ a:focus-visible {
     margin: 0;
 }
 
-/* 6. Päta a kontaktné odkazy. */
 .pata {
-    background-color: var(--karta);
+    background-color: var(--zelena);
+    color: var(--pozadie);
 }
 
 .pata__riadok {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .pata__nadpis {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
 }
 
 .pata__adresa {
@@ -228,23 +226,22 @@ a:focus-visible {
 }
 
 .pata__odkaz:hover {
-    color: var(--limetka);
-    text-decoration: underline;
+    color: var(--panel);
 }
 
 .pata__copyright {
-    margin: 2.5rem 0 0;
-    color: var(--tlmeny);
+    margin: 2rem 0 0;
     font-size: 0.875rem;
 }
 
-/* 7. Tablet – pridávame zmeny od 640 px. */
 @media (min-width: 640px) {
     .hlavicka {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 2rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
     }
 
     .navigacia__zoznam {
@@ -262,20 +259,24 @@ a:focus-visible {
     .pata__riadok {
         justify-content: space-between;
     }
+
+    .pata__copyright {
+        margin-top: 3rem;
+    }
 }
 
-/* 8. Desktop – Grid rozdelí body na bočný panel a obsah. */
 @media (min-width: 1024px) {
     body {
         display: grid;
-        grid-template-columns: 15rem 1fr;
+        grid-template-columns: 16rem 1fr;
+        background-color: var(--panel);
     }
 
     .hlavicka {
         grid-column: 1;
         grid-row: 1 / 3;
         display: block;
-        padding: 2.5rem 2rem;
+        padding: 2rem 1.5rem;
     }
 
     .navigacia__zoznam {
@@ -288,13 +289,17 @@ a:focus-visible {
         min-width: 0;
     }
 
-    .uvod, .treningy, .clenstvo, .pata {
+    .uvod, .clenstvo {
+        background-color: var(--pozadie);
+    }
+
+    .uvod, .treningy, .clenstvo {
         padding: 4rem 8%;
     }
 
     .uvod {
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
     }
 
     .treningy__zoznam {
